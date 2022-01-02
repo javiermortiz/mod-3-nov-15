@@ -1,4 +1,4 @@
-# mod-3-sept-20
+# mod-3-nov-15
 Projects solutions, content outlines and other resources for aA's mod 3.
 
 ## Mod 3 breakdown
