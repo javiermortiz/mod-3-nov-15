@@ -1,0 +1,112 @@
+/* ===== Problem 1 ===== */
+
+.rocket_svg {
+    height: 200px;
+    width: auto;
+    margin-left: 300px;
+    /*!!START */
+    border: 1px solid black;
+    transition: transform 2s ease-in-out, border 5s linear;
+    /*!!END */
+}
+
+/*!!ADD */
+/*/* Create rocket hover animation here */
+/*!!END_ADD */
+/*!!START SILENT */
+.rocket_svg:hover {
+    border: 5px dashed pink;
+    transform: rotate(250deg);
+}
+/*!!END */
+
+
+/* ===== Problem 2 ===== */
+
+.astronaut_svg {
+    height: 200px;
+    width: auto;
+    margin-left: 200px;
+    /*!!START */
+    transition: transform 2s;
+    /*!!END */
+    z-index: 2;
+    position: relative;
+}
+
+/*!!ADD */
+/*/* Create astronaut hover animation here */
+/*!!END_ADD */
+/*!!START SILENT */
+.astronaut_svg:hover {
+    transform: translate(100px);
+}
+/*!!END */
+
+/* ======= BONUS ======= */
+
+.earth_svg {
+    height: 200px;
+    width: auto;
+    margin-left: 300px;
+    /*!!ADD */
+    /*/* Your animation here */
+    /*!!END_ADD */
+    /*!!START SILENT */
+    position: relative;
+    bottom: 0;
+    /* transition: all 100ms; */
+    animation: spin 2s linear infinite;
+    z-index: 1;
+    /*!!END */
+}
+
+@keyframes spin {
+    /*!!ADD */
+    /*/* Set up your keyframe animation here */
+    /*!!END_ADD */
+    /*!!START SILENT */
+    0% {
+        transform: rotate(0deg);
+    }
+    10% {
+        bottom: 10vh;
+        transform: rotate(100deg);
+    }
+    20% {
+        bottom: 20vh;
+        transform: rotate(300deg);
+    }
+    30% {
+        bottom: 35vh;
+        transform: rotate(700deg);
+    }
+    50% {
+        bottom: 50vh;
+        transform: rotate(2000deg);
+    }
+    65% {
+        bottom: 60vh;
+        transform: rotate(3000deg);
+    }
+    85% {
+        bottom: 80vh;
+        transform: rotate(9000deg);
+    }
+    100% {
+        bottom: 4vh;
+        transform: rotate(-360deg);
+    }
+    /*!!END */
+}
+
+.button_red {
+    background-color: red;
+    width: 200px;
+
+}
+
+.red {
+    color: red;
+}
+.

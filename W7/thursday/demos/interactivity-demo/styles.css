@@ -1,0 +1,30 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+div {
+    width: 500px;
+    height: 100px;
+    background-color: lightblue;
+    border: 1px solid blue;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    position: fixed;
+    top: 0;
+    transition: transform 2s, width 200ms, background-color 2s .5s, top 2s  linear;
+}
+
+div:hover {
+    transform: rotate(45deg)
+}
+
+.transition_box {
+    width: 100px;
+    border: 1px solid red;
+    background-color: pink;
+    top: 50%;
+}
