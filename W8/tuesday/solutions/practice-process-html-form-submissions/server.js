@@ -110,7 +110,7 @@ const server = http.createServer((req, res) => {
     if (req.method === "POST" && req.url === "/cat") {
       const { name, pattern, size, description } = req.body;
 
-      cat = new Cat({ name, pattern, size, description });
+      cat = new Cat(req.body);
       res.statusCode = 302;
       res.setHeader("Location", "/");
       res.end();
