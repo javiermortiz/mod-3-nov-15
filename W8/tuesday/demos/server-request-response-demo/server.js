@@ -1,11 +1,20 @@
 const http = require('http');
 const fs = require("fs");
 
+let database = [];
+
 const server = http.createServer((req, res) => {
     console.log(`${req.method} ${req.url}`);
 
     if (req.method === "GET" && req.url === "/") {
-        const resBody = fs.readFileSync("index.html");
+        const htmlPage = fs.readFileSync("index.html", "utf-8");
+        const tasksList = database.map(task => {
+            return `<li>${task["tasks"]} - ${task["time"]}</li>`;
+        });
+
+        // [`<li>Read - 13:00`, `<li>Read - 14:00</li>`]
+        const resBody = htmlPage.replace(/#{tasks}/g, tasksList.join(""));
+        // `<li>Read - 13:00</li><li>Read - 14:00</li>`
         res.statusCode = 200;
         res.setHeader("Content-Type", "text/html");
         return res.end(resBody);
@@ -42,6 +51,7 @@ const server = http.createServer((req, res) => {
 
         if (req.method === "POST" && req.url === "/tasks") {
             console.log(req.body);
+            database.push(req.body);
             res.statusCode = 302;
             res.setHeader("Location", "/");
             return res.end();
