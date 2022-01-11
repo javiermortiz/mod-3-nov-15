@@ -10,6 +10,11 @@ const server = http.createServer((req, res) => {
         res.setHeader("Content-Type", "text/html");
         return res.end(resBody);
     }
+
+    res.statusCode = 404;
+    res.setHeader("Content-Type", "text/html");
+    res.end("<h1>Page not found</h1>");
+
 });
 
 const port = 5000;
