@@ -18,9 +18,43 @@ const server = http.createServer((req, res) => {
         return res.end(resBody);
     }
 
-    res.statusCode = 404;
-    res.setHeader("Content-Type", "text/html");
-    res.end("<h1>Page not found</h1>");
+    let reqBody = "";
+    req.on("data", (data) => {
+        reqBody += data;
+    });
+
+    req.on("end", () => {
+        if (reqBody) {
+            // tasks=Read&time=12%3A50
+            req.body = reqBody
+                .split("&") // ['tasks=Read', 'time=12%3A50']
+                .map((keyValuePair) => keyValuePair.split("=")) // [['tasks', 'Read'], ['time', '12%3A50']]
+                .map(([key, value]) => [key, value.replace("+", " ")])
+                .map(([key, value]) => [key, decodeURIComponent(value)]) // [['tasks', 'Read'], ['time', '12:50']]
+                .reduce((acc, [key, value]) => {
+                    acc[key] = value;
+                    return acc;
+                }, {});
+
+            // app.use(express.urlencoded);
+            // app.use(express.json);
+        }
+
+        if (req.method === "POST" && req.url === "/tasks") {
+            console.log(req.body);
+            res.statusCode = 302;
+            res.setHeader("Location", "/");
+            return res.end();
+        }
+
+        res.statusCode = 404;
+        res.setHeader("Content-Type", "text/html");
+        res.end("<h1>Page not found</h1>");
+    });
+
+  
+
+    
 
 });
 
