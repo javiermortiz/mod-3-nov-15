@@ -11,6 +11,13 @@ const server = http.createServer((req, res) => {
         return res.end(resBody);
     }
 
+    if (req.method === "GET" && req.url === "/static/main.css") {
+        const resBody = fs.readFileSync(`.${req.url}`);
+        res.statusCode = 200;
+        res.setHeader("Content-Type", "text/css");
+        return res.end(resBody);
+    }
+
     res.statusCode = 404;
     res.setHeader("Content-Type", "text/html");
     res.end("<h1>Page not found</h1>");
