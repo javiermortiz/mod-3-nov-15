@@ -63,21 +63,17 @@ function openingCrawlNested(time) {
 function wait(ms) {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
-            if (ms > 1000) {
-                resolve("Hello World!");
-            } else {
-                reject("There is not enough time to say hello");
-            }
+            reject("bye");
         }, ms);
     });
 }
 
-wait(2000).then((phrase) => console.log(phrase), e => console.error(e))
 
 // V3 with promise chaining
 function openingCrawlChain(time) {
     wait(time)
-        .then(() => {
+        .then((phrase) => {
+            console.log(phrase);
             console.log(`It is a period of civil war.
                      Rebel spaceships, striking
                      from a hidden base, have won
@@ -109,26 +105,35 @@ function openingCrawlChain(time) {
 
 // V4 with async and await
 async function openingCrawlAsync(time) {
-    await wait(time)
-    console.log(`It is a period of civil war.
-                Rebel spaceships, striking
-                from a hidden base, have won
-                their first victory against
-                the evil Galactic Empire.`);
-    await wait(time);
-    console.log(`During the battle, Rebel
-                    spies managed to steal secret
-                    plans to the Empire's
-                    ultimate weapon, the DEATH
-                    STAR, an armored space
-                    station with enough power to
-                    destroy an entire planet.`)
-    await wait(time);
-    console.log(`Pursued by the Empire's
-                        sinister agents, Princess
-                        Leia races home aboard her
-                        starship, custodian of the
-                        stolen plans that can save
-                        her people and restore
-                        freedom to the galaxy....`);
+    try {
+        const phrase = await wait(time);
+        console.log(phrase);
+        console.log(`It is a period of civil war.
+                    Rebel spaceships, striking
+                    from a hidden base, have won
+                    their first victory against
+                    the evil Galactic Empire.`);
+        await wait(time);
+        console.log(`During the battle, Rebel
+                        spies managed to steal secret
+                        plans to the Empire's
+                        ultimate weapon, the DEATH
+                        STAR, an armored space
+                        station with enough power to
+                        destroy an entire planet.`)
+        await wait(time);
+        console.log(`Pursued by the Empire's
+                            sinister agents, Princess
+                            Leia races home aboard her
+                            starship, custodian of the
+                            stolen plans that can save
+                            her people and restore
+                            freedom to the galaxy....`);
+    } catch (e) {
+        console.log(e);
+    }
 }
+
+openingCrawlAsync(3000);
+
+(async () => await wait(2000))();
