@@ -4,8 +4,13 @@ document.addEventListener("DOMContentLoaded", ev => {
         ev.preventDefault();
         const input = document.querySelector("input");
         const number = input.value;
+
+
         const res = await fetch(`https://swapi.dev/api/people/${number}`);
         const data = await res.json();
+
+
+        
         const people = document.querySelector("#people");
         people.innerHTML = `What Star Wars character has ${data.eye_color} eyes?`;
         setTimeout(() => {
