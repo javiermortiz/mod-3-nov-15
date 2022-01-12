@@ -11,7 +11,7 @@ fetch("/products")
   .then(res => console.log(res.status));
 
 // using async/await
-(async function() {
+(async function myFunc() {
   const res = await fetch("/products");
   console.log(res.status);
 })();
