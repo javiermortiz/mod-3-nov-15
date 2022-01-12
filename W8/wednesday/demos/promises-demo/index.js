@@ -28,6 +28,8 @@ function openingCrawlBroken(time) {
     }, time);
 }
 
+
+
 // V2 works but unreadable
 function openingCrawlNested(time) {
     setTimeout(() => {
@@ -61,10 +63,16 @@ function openingCrawlNested(time) {
 function wait(ms) {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
-            resolve()
+            if (ms > 1000) {
+                resolve("Hello World!");
+            } else {
+                reject("There is not enough time to say hello");
+            }
         }, ms);
     });
 }
+
+wait(2000).then((phrase) => console.log(phrase), e => console.error(e))
 
 // V3 with promise chaining
 function openingCrawlChain(time) {
@@ -75,7 +83,7 @@ function openingCrawlChain(time) {
                      from a hidden base, have won
                      their first victory against
                      the evil Galactic Empire.`);
-            return wait(time);
+            return wait(time)
         })
         .then(() => {
             console.log(`During the battle, Rebel
@@ -95,7 +103,8 @@ function openingCrawlChain(time) {
                              stolen plans that can save
                              her people and restore
                              freedom to the galaxy....`);
-        });
+        })
+        .catch(e => console.log(e));
 }
 
 // V4 with async and await
@@ -123,5 +132,3 @@ async function openingCrawlAsync(time) {
                         her people and restore
                         freedom to the galaxy....`);
 }
-
-openingCrawlAsync(2000);
