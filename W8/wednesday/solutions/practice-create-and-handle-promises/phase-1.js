@@ -42,6 +42,7 @@ function workout() {
 }
 
 
+
 /* ============================ TEST YOUR CODE ============================
 
 Run the file (`node phase-1.js`) and check your output against the expected
