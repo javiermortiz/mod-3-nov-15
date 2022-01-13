@@ -12,7 +12,7 @@
 - Get the comments for a post
   - `GET /posts/:postId/comments`
 - Create a comment for a post
-  - `GET /posts/:postId/comments`
+  - `POST /posts/:postId/comments`
 - Edit a comment for a post
   - `PUT /comments/:commentId`
   - `PATCH /comments/:commentId`
