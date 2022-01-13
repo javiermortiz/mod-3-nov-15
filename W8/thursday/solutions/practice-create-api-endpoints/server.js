@@ -56,12 +56,13 @@ const server = http.createServer((req, res) => {
       //!!START
       res.statusCode = 200;
       res.setHeader('Content-Type', 'application/json');
-      res.write(JSON.stringify(dogs));
+      res.write(JSON.stringify(dogs))
       return res.end();
       //!!END
     }
 
     // GET /dogs/:dogId
+
     if (req.method === 'GET' && req.url.startsWith('/dogs/')) {
       const urlParts = req.url.split('/'); // ['', 'dogs', '1']
       if (urlParts.length === 3) {
