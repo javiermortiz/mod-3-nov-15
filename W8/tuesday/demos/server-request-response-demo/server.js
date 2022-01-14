@@ -57,6 +57,13 @@ const server = http.createServer((req, res) => {
             return res.end();
         }
 
+        if (req.method === "POST" && req.url === "/tasks/:taskId/delete") {
+            const idx = database.find()
+            database.splice(idx, 1);
+            res.statusCode = 302;
+            res.setHeader("Location", "/");
+        }
+
         res.statusCode = 404;
         res.setHeader("Content-Type", "text/html");
         res.end("<h1>Page not found</h1>");
