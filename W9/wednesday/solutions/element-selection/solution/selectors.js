@@ -4,7 +4,6 @@ const select = () => {
     /* PART 1 */
     // Get all seeded fruit elements
     const seeded = document.getElementsByClassName("seed");
-
     // Get all seedless fruit elements
     const seedless = document.querySelectorAll(".seedless");
 

@@ -22,21 +22,29 @@ window.onload = () => {
 
         
         const playground = document.getElementById("playground");
-        playground.innerHTML += `
-            <h2 class='red'>Hope you enjoyed the demo!</h2>
-            <img 
-                src='https://p4.wallpaperbetter.com/wallpaper/70/625/78/animal-baby-cute-dog-wallpaper-preview.jpg'
-            >
-        `;
+        // playground.innerHTML += `
+        //     <h2 class='red'>Hope you enjoyed the demo!</h2>
+        //     <img
+        //         src='https://p4.wallpaperbetter.com/wallpaper/70/625/78/animal-baby-cute-dog-wallpaper-preview.jpg'
+        //     >
+        // `;
 
-        // const h2 = document.createElement('h2');
-        // const title = document.createTextNode('Hope you enjoyed the demo!')
-        // h2.appendChild(title);
-        // h2.classList.add('red');
-        // const img = document.createElement('img');
-        // img.src = 'https://p4.wallpaperbetter.com/wallpaper/70/625/78/animal-baby-cute-dog-wallpaper-preview.jpg';
-        // playground.appendChild(h2);
-        // playground.appendChild(img);
+        /*
+        <div id="playground">
+            <h2 class="red">Hope you enjoyed the demo!<h2>
+            <img src="https://p4.">
+        </div>
+        
+        
+        */
+        const h2 = document.createElement('h2');
+        const title = document.createTextNode('Hope you enjoyed the demo!')
+        h2.appendChild(title);
+        h2.classList.add('red');
+        const img = document.createElement('img');
+        img.setAttribute('src', 'https://p4.wallpaperbetter.com/wallpaper/70/625/78/animal-baby-cute-dog-wallpaper-preview.jpg');
+        
+
     });
 
 
