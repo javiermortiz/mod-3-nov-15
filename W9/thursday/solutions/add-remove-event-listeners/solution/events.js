@@ -9,7 +9,7 @@ window.addEventListener("DOMContentLoaded", () => {
         if (value === "red") {
             redInput.style.backgroundColor = "red";
         } else {
-            redInput.style.backgroundColor = "transparent";
+            redInput.style.backgroundColor = null;
         }
     }
 
@@ -19,15 +19,15 @@ window.addEventListener("DOMContentLoaded", () => {
     const addItem = document.getElementById("add-item");
     const ul = document.querySelector("#part-2 > ul");
     const addLi = e => {
-        const input = document.querySelector("#list-add")
+        const input = document.querySelector("#list-add");
         const value = input.value;
         const newLi = document.createElement("li");
         newLi.innerText = value;
-        ul.appendChild(newLi);
+        ul.append(newLi);
         input.value = '';
     };
 
-    addItem.addEventListener("click", addLi);
+    addItem.addEventListener("change", addLi);
 
     // PART 3
     const colorSelect = document.getElementById("color-select");
@@ -40,7 +40,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
     // PART 4
     const removeListeners = document.getElementById("remove-listeners");
-    removeListeners.addEventListener("click", e => {
+    removeListeners.addEventListener("click", () => {
         redInput.removeEventListener("input", changeRed);
         addItem.removeEventListener("click", addLi);
         colorSelect.removeEventListener("change", changeColor);
