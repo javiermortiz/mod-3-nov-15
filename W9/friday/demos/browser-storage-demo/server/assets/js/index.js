@@ -1,14 +1,14 @@
 window.addEventListener("DOMContentLoaded", ev => {
     // Retrieve item in localStorage
-    const savedMode = localStorage.getItem("mode");
+    // const savedMode = localStorage.getItem("mode");
     
     // Retrieve item in cookies
     // const savedMode = document.cookie.split("=")[1];
 
 
-    if (savedMode === "dark") {
-        darkMode();
-    }
+    // if (savedMode === "dark") {
+    //     darkMode();
+    // }
     
     // If you are setting anything other than a string in localStorage
     // remember to stringify it and parse it
@@ -28,7 +28,7 @@ window.addEventListener("DOMContentLoaded", ev => {
             darkMode();
         }
         // Set item in localStorage
-        localStorage.setItem("mode", selection);
+        // localStorage.setItem("mode", selection);
 
         // If you are setting anything other than a string in localStorage
         // remember to stringify it and parse it
