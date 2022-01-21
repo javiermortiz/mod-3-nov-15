@@ -35,6 +35,7 @@
     - [Cookies][13] understand how they work and be able to read, write and delete cookies.
     - [Local Storage][14] understand how it works and be able to use `setItem` and `getItem`
 
+5. Be comfortable using the fetch Api, reading the response body, and using it to create DOM elements and place them in the DOM
 
 [0.5]:[https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON]
 [0.6]:[https://open.appacademy.io/learn/js-py---jun-2021-cohort-2-online/week-9-jun-2021-cohort-2-online/mac-addressess-and-ports]
